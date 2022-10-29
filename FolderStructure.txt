@@ -1,0 +1,16 @@
+﻿
+ApiGateways > klasörü içerisinde mobile ve web'in ayrı ayrı iletişim kuracağı middleware apileri bulunuyor
+Web.ApiGateway > Web için istekleri yöneten gateway
+
+BuildingBlocks > klasörü içerisinde eventbus yapısı var
+EventBus > EventBus.Base > EventBus için base class library
+EventBus > EventBus.Factory > EventBus için ya da RabbitMq ya da Azure ServiceBus'a bağlanabilecekleri Factory
+EventBus > EventBus.AzureServiceBus > RabbitMq implementasyonu
+EventBus > EventBus.RabbitMQ > RabbitMq implementasyonu
+
+Services > klasörü içerisinde Micro Servislerimiz olacak
+
+Clients > klasörü içerisinde web veya mobile client'larımız olacak
+
+
+
