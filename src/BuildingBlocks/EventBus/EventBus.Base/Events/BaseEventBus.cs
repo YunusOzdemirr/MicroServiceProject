@@ -38,7 +38,7 @@ namespace EventBus.Base.Events
             SubsManager.Clear();
         }
 
-        public async Task<bool> ProcessEvent(string eventName,string message)
+        protected async Task<bool> ProcessEvent(string eventName,string message)
         {
             eventName = ProcessEventName(eventName);
             var processed = false;
