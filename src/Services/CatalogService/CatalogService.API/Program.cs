@@ -1,5 +1,8 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using CatalogService.API.Extensions;
 
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.ConfigureDbContext(builder.Configuration);
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -21,6 +24,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
 
 app.Run();
 

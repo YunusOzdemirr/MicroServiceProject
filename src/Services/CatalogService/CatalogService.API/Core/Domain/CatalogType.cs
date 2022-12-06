@@ -2,10 +2,15 @@ namespace CatalogService.API.Core.Domain;
 
 public class CatalogType
 {
-    public CatalogType(int ıd, string type)
+    public CatalogType(int id, string type)
     {
-        Id = ıd;
+        Id = id;
         Type = type;
+    }
+
+    public CatalogType()
+    {
+        
     }
     public int Id { get; set; }
     public string Type { get; set; }

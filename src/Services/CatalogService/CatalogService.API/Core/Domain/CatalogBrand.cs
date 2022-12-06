@@ -7,6 +7,11 @@ public class CatalogBrand
         Id = id;
         Brand = brand;
     }
+
+    public CatalogBrand()
+    {
+        
+    }
     public int Id { get; set; }
     public string Brand { get; set; }
 }
