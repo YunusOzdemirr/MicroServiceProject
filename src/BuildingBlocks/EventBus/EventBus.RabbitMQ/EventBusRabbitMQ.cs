@@ -87,11 +87,11 @@ namespace EventBus.RabbitMQ
 
                 properties.DeliveryMode = 2; //persistent
 
-                _consumerChannel.QueueDeclare(queue: GetSubName(eventName), durable: true, exclusive: false,
-                    autoDelete: false, arguments: null); //Ensure queue exists while publishing
+                // _consumerChannel.QueueDeclare(queue: GetSubName(eventName), durable: true, exclusive: false,
+                //     autoDelete: false, arguments: null); //Ensure queue exists while publishing
 
-                _consumerChannel.QueueBind(queue: GetSubName(eventName), exchange: EventBusConfig.DefaultTopicName,
-               routingKey: eventName);
+                //_consumerChannel.QueueBind(queue: GetSubName(eventName), exchange: EventBusConfig.DefaultTopicName,
+                //routingKey: eventName);
 
                 _consumerChannel.BasicPublish(exchange: EventBusConfig.DefaultTopicName, routingKey: eventName,
                     mandatory: true, basicProperties: properties, body: body);
