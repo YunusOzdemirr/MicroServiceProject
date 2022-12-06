@@ -23,7 +23,7 @@ namespace EventBus.Base.Events
             if (EventBusConfig.DeleteEventPrefix)
                 eventName = eventName.TrimStart(EventBusConfig.EventNamePrefix.ToArray());
             if (EventBusConfig.DeleteEventSuffix)
-                eventName = eventName.TrimStart(EventBusConfig.EventNameSuffix.ToArray());
+                eventName = eventName.TrimEnd(EventBusConfig.EventNameSuffix.ToArray());
             return eventName;
         }
 

@@ -22,12 +22,18 @@ namespace EventBus.RabbitMQ
         {
             if (config.Connection != null)
             {
-                var connJson = JsonConvert.SerializeObject(EventBusConfig.Connection, new JsonSerializerSettings()
+                if (EventBusConfig.Connection is ConnectionFactory)
+                    _connectionFactory = EventBusConfig.Connection as ConnectionFactory;
+                else
                 {
-                    //Self referencing loop detected for property
-                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-                });
-                _connectionFactory = JsonConvert.DeserializeObject<ConnectionFactory>(connJson);
+                    var connJson = JsonConvert.SerializeObject(EventBusConfig.Connection, new JsonSerializerSettings()
+                    {
+                        // Self referencing loop detected for property 
+                        ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                    });
+
+                    _connectionFactory = JsonConvert.DeserializeObject<ConnectionFactory>(connJson);
+                }
             }
             else
                 _connectionFactory = new ConnectionFactory();
@@ -78,9 +84,14 @@ namespace EventBus.RabbitMQ
             policy.Execute(() =>
             {
                 var properties = _consumerChannel.CreateBasicProperties();
+
                 properties.DeliveryMode = 2; //persistent
+
                 _consumerChannel.QueueDeclare(queue: GetSubName(eventName), durable: true, exclusive: false,
                     autoDelete: false, arguments: null); //Ensure queue exists while publishing
+
+                _consumerChannel.QueueBind(queue: GetSubName(eventName), exchange: EventBusConfig.DefaultTopicName,
+               routingKey: eventName);
 
                 _consumerChannel.BasicPublish(exchange: EventBusConfig.DefaultTopicName, routingKey: eventName,
                     mandatory: true, basicProperties: properties, body: body);
