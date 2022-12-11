@@ -1,6 +1,6 @@
 ﻿using System;
 using Consul;
-namespace IdentityService.API.Extensions
+namespace BasketService.API.Extensions
 {
     public static class ConsulRegistration
     {
@@ -29,10 +29,10 @@ namespace IdentityService.API.Extensions
 
             var registration = new AgentServiceRegistration()
             {
-                ID = serviceId ?? "IdentityService",
-                Name = serviceName ?? "IdentityService",
+                ID = serviceId ?? "BasketService",
+                Name = serviceName ?? "BasketService",
                 Address = $"{uri.Host}",
-                Port = 5005,//uri.Port,
+                Port = 5003,//uri.Port,
                 Tags = new[] { serviceName, serviceId }
             };
 
