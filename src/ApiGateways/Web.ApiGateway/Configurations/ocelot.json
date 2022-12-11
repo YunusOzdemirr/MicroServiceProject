@@ -1,0 +1,36 @@
+﻿{
+    "Routes": [
+        {
+            "UseServiceDiscovery": true,
+            "ServiceName": "CatalogService",
+
+            "DownstreamPathTemplate": "/api/catalog/{everything}",
+            "DownstreamScheme": "http",
+        
+            "UpstreamPathTemplate": "/catalog/{everything}",
+            "UpstreamHttpMethod": [ "Get", "Post", "Delete", "Put" ],
+            "UpstreamScheme": "http"
+        },
+        {
+            "UseServiceDiscovery": true,
+            "ServiceName": "IdentityService",
+
+            "DownstreamPathTemplate": "/api/auth/{everything}",
+            "DownstreamScheme": "http",
+
+            "UpstreamPathTemplate": "/auth/{everything}",
+            "UpstreamHttpMethod": [ "Post" ],
+            "UpstreamScheme": "http"
+        }
+    ],
+
+
+    "GlobalConfiguration": {
+        "BaseUrl": "http://localhost:5000",
+        "ServiceDiscoveryProvider": {
+            "Host": "localhost",
+            "Port": 8500,
+            "Type": "Consul"
+        }
+    }
+}

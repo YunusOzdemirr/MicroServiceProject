@@ -10,6 +10,7 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.25.1" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.25.1" />
+    <PackageReference Include="Consul" Version="1.6.10.7" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,11 +20,14 @@
     <None Remove="Application\Services\" />
     <None Remove="Microsoft.IdentityModel.Tokens" />
     <None Remove="System.IdentityModel.Tokens.Jwt" />
+    <None Remove="Extensions\" />
+    <None Remove="Consul" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
     <Folder Include="Application\" />
     <Folder Include="Application\Models\" />
     <Folder Include="Application\Services\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
 </Project>

@@ -75,6 +75,28 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventBus.UnitTest", "tests\BuildingBlocks\EventBus.UnitTest\EventBus.UnitTest.csproj", "{3E50D7F7-E794-4AC8-8DE4-76BE93656221}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker-compose-files", "docker-compose-files", "{536A3582-D08C-4DF8-913C-B093A6983E03}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "consul", "consul", "{520A4A90-9225-499F-9E62-ED7C209DC184}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose-files\consul\docker-compose.yml = docker-compose-files\consul\docker-compose.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "rabbitmq", "rabbitmq", "{67DA889D-52AD-4F21-B077-71DD51A1A3C9}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose-files\rabbitmq\docker-compose.yml = docker-compose-files\rabbitmq\docker-compose.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "redis", "redis", "{6980CCD1-0C33-4481-A6E1-7A8A35D3C823}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose-files\redis\docker-compose.yml = docker-compose-files\redis\docker-compose.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sqlserver", "sqlserver", "{85D4FFB5-22DB-4E1E-99F8-DE16DEF260A1}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose-files\sqlserver\docker-compose.yml = docker-compose-files\sqlserver\docker-compose.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -184,5 +206,9 @@ Global
 		{48A6E7BF-0ABD-4239-B17B-29CAFD4D4E01} = {5ED597BD-81B8-4B5F-B815-034F759D36B6}
 		{7F42D778-E251-4D53-A6E0-68028874B974} = {D61FC39C-5334-4E15-9D05-A75DD5ED2195}
 		{3E50D7F7-E794-4AC8-8DE4-76BE93656221} = {7F42D778-E251-4D53-A6E0-68028874B974}
+		{520A4A90-9225-499F-9E62-ED7C209DC184} = {536A3582-D08C-4DF8-913C-B093A6983E03}
+		{67DA889D-52AD-4F21-B077-71DD51A1A3C9} = {536A3582-D08C-4DF8-913C-B093A6983E03}
+		{6980CCD1-0C33-4481-A6E1-7A8A35D3C823} = {536A3582-D08C-4DF8-913C-B093A6983E03}
+		{85D4FFB5-22DB-4E1E-99F8-DE16DEF260A1} = {536A3582-D08C-4DF8-913C-B093A6983E03}
 	EndGlobalSection
 EndGlobal

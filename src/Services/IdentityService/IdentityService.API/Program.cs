@@ -1,4 +1,5 @@
 ﻿using IdentityService.API.Application.Services;
+using IdentityService.API.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IIdentityService, IdentityService.API.Application.Services.IdentityService>();
+
+builder.Services.ConfigureConsul(builder.Configuration);
 
 var app = builder.Build();
 
@@ -24,6 +27,9 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+
+app.RegisterWithConsul(app.Lifetime, builder.Configuration);
 
 app.Run();
 

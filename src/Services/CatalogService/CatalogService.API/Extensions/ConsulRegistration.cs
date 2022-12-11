@@ -24,7 +24,7 @@ public static class ConsulRegistration
 
         var logger = loggingFactory.CreateLogger<IApplicationBuilder>();
 
-        var uri = configuration.GetValue<Uri>("ConsulConfig:ServiceAddress");
+        var uri = configuration.GetValue<Uri>("ConsulConfig:Address");
         var serviceName = configuration.GetValue<string>("ConsulConfig:ServiceName");
         var serviceId = configuration.GetValue<string>("ConsulConfig:ServiceId");
 
